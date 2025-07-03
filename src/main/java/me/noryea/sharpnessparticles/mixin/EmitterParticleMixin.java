@@ -30,10 +30,10 @@ public abstract class EmitterParticleMixin extends NoRenderParticle {
             double e;
             double d = this.random.nextFloat() * 2.0f - 1.0f;
             if (d * d + (e = this.random.nextFloat() * 2.0f - 1.0f) * e + (f = this.random.nextFloat() * 2.0f - 1.0f) * f > 1.0) continue;
-            double g = this.entity.offsetX(d / 4.0);
+            double g = this.entity.getBodyX(d / 4.0);
             double h = this.entity.getBodyY(0.5 + e / 4.0);
-            double j = this.entity.offsetZ(f / 4.0);
-            this.world.addParticle(this.parameters, false, g, h, j, d, e + 0.2, f);
+            double j = this.entity.getBodyZ(f / 4.0);
+            this.world.addParticleClient(this.parameters, false, true, g, h, j, d, e + 0.2, f);
         }
         ++this.emitterAge;
         if (this.emitterAge >= this.maxEmitterAge) {
